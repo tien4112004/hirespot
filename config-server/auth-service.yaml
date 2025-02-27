@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/auth_service
+    username: '{cipher}a41afa40b506f2d7930f69c3723cc88d7337ca9301b5314ea9c9f94298c0e0cf'
+    password: '{cipher}a843ce80fcfaa0852e514279816666c3e0e90e4c5b90f0204682b2dc8e5e1495ea49e5af9e4f2a7852e0b75161bfccf5'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  secret: '{cipher}6a252f62fa10b5400cde3d7ee91d097150b3ee513360dc2832cf8e0b1eff2f36'    # secret key for JWT
+  expiration: 3600
+
+server:
+  port: 8081
