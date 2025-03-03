@@ -5,6 +5,7 @@ import com.tien4112004.auth_service.dto.user.UserCollectionRequestDto;
 import com.tien4112004.auth_service.entity.User;
 import com.tien4112004.auth_service.mapper.UserMapper;
 import com.tien4112004.auth_service.repository.UserRepository;
+import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -44,14 +45,14 @@ public class UserService {
     }
 
     public User getUserById(UUID id) {
-        return _userRepository.findUserById(id);
+        return _userRepository.findUserById(id).orElseThrow(() -> new NotFoundException("User with id " + id + " not found"));
     }
 
     public boolean isEmailTaken(String email) {
-        return _userRepository.findUserByEmail(email) != null;
+        return _userRepository.existsByEmail(email)
     }
 
     public boolean isUsernameTaken(String username) {
-        return _userRepository.findUserByUsername(username) != null;
+        return _userRepository.existsByUsername(username);
     }
 }
