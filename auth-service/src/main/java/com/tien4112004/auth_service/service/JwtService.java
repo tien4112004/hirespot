@@ -13,12 +13,12 @@ import java.util.Date;
 
 @Service
 public class JwtService {
-    @Value("${jwt.secret}")
+    @Value(value = "${jwt.secret}")
     private String jwtSecret;
 
     private String encodedSecret;
 
-    @Value("${jwt.expiration}")
+    @Value(value = "${jwt.expiration}")
     private long jwtExpirationInSecs;
 
     @PostConstruct

@@ -1,4 +1,4 @@
-package com.tien4112004.commonlib.responses;
+package com.tien4112004.commonlib.response;
 
 import lombok.Data;
 
